@@ -1,0 +1,119 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <title>Sistema de pagos</title>
+    <link rel="stylesheet" href="style.css">
+</head> 
+<body>
+    <header class="page-header">
+        <h1>SISTEMA DE GESTION DE PAGOS</h1>
+        <h2> Gestione sus cobros por transferencia de forma simple y ordenada</h2>
+    </header>
+    
+
+    <main class="page-content">
+        <section class="payment-section">
+            <form id="payments-form" class="form form--payment">
+                <h3>Registrar pago</h3>
+
+                <div class="form-group">
+                    <label for="client-input">Cliente:</label>
+                    <input type="text" id="client-input" placeholder="Ingrese nombre" minlength="3" required>
+                </div>
+
+                <div class="form-group">
+                    <label for="amount-input">Monto:</label>
+                    <input type="number" id="amount-input" placeholder="Ingrese un monto" required>
+                </div>
+
+                <div class="form-group">
+                    <label for="account-input">Cuenta:</label>
+                    <input type="text" id="account-input" placeholder="Ingrese cuenta de destino" required>
+                </div>
+
+                <div class="form-group">
+                    <label for="receipt-input">Comprobante:</label>
+                    <input type="file" id="receipt-input" required>
+                </div>
+
+                <button type="submit" class="btn btn--primary">Guardar</button>
+            </form>
+        </section>
+
+
+        <section class="search-section">
+            <form id="search-form" class="form form--search">
+                <h3>Buscar cliente</h3>
+
+                <div class="form-group form-group--radio">
+                    <label>
+                        <input type="radio" name="filter" id="all-filter" checked>
+                        Mostrar todos
+                    </label>
+                </div>
+
+                <div class="form-group form-group--radio">
+                    <label>
+                        <input type="radio" name="filter" id="name-filter">
+                        Filtrar por nombre
+                    </label>
+                    <input type="text" id="name-search-input" placeholder="Ingrese nombre">
+                </div>
+
+                <div class="form-group form-group--radio">
+                    <label>
+                        <input type="radio" name="filter" id="account-filter">
+                        Filtrar por cuenta
+                    </label>
+                    <input type="text" id="account-search-input" placeholder="Ingrese cuenta">
+                </div>
+
+                <div class="form-group form-group--radio">
+                    <label>
+                        <input type="radio" name="filter" id="date-filter">
+                        Filtrar por fecha
+                    </label>
+                    <input type="date" id="date-from-input">
+                    <input type="date" id="date-to-input">
+                </div>
+
+                <button type="submit" class="btn btn--primary">Buscar</button>
+            </form>
+        </section>
+
+
+        <section id="results-section" class="results-section hidden">
+            <div class="results-panel">
+                <h3>Resultados</h3>
+                <p id="results-message" class="results-message hidden"></p>
+
+                <div id="results-container" class="results-list">
+
+                </div>
+                
+                <div class="results-actions">
+                    <button type="button" id="sum-button" class="btn btn--secondary" hidden>
+                        Sumar montos
+                    </button>
+
+                    <button type="button" id="results-reset-button" class="btn btn--secondary">
+                        Limpiar resultados
+                    </button>
+
+                    <p id="total-text"></p>
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <div id="modal-overlay" class="modal-overlay hidden">
+        <div class="modal">
+            <button id="modal-close" class="modal-close">×</button>
+            <div id="modal-content"></div>
+        </div>
+    </div>
+
+    <script src="payments-system.js"></script>
+</body>
+</html>

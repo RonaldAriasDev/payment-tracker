@@ -1,0 +1,308 @@
+/* RESET BÁSICO */
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+/* VARIABLES GLOBALES */
+
+:root {
+  --color-primary: #2563eb;
+  --color-primary-dark: #1e40af;
+  --color-secondary: #64748b;
+
+  --color-bg: #f8fafc;
+  --color-surface: #ffffff;
+  --color-border: #e5e7eb;
+
+  --color-text: #0f172a;
+  --color-text-muted: #475569;
+  --color-success: #16a34a;
+
+  --radius: 6px;
+  --shadow: 0 4px 10px rgba(0, 0, 0, 0.08);
+}
+
+/* BODY Y TIPOGRAFÍA BASE */
+
+body {
+  font-family: system-ui, -apple-system, BlinkMacSystemFont, sans-serif;
+  background-color: var(--color-bg);
+  color: var(--color-text);
+  line-height: 1.5;
+}
+
+/* HEADER */
+
+.page-header {
+  background-color: var(--color-surface);
+  padding: 2rem 1.5rem;
+  border-bottom: 1px solid var(--color-border);
+  text-align: center;
+}
+
+.page-header h1 {
+  font-size: 1.8rem;
+  margin-bottom: 0.5rem;
+}
+
+.page-header h2 {
+  font-size: 1rem;
+  font-weight: 400;
+  color: var(--color-text-muted);
+}
+
+/* LAYOUT GENERAL */
+
+.page-content {
+  max-width: 1100px;
+  margin: 2rem auto;
+  padding: 0 1.5rem;
+
+  display: grid;
+  grid-template-columns: 1fr;
+  justify-items: center;
+  gap: 2rem;
+
+  /* outline: 2px solid blue; */
+}
+
+.page-content > section {
+  width: 100%;
+  /* outline: 2px solid red; */
+}
+
+/* SECCIÓN DE PAGO Y BUSQUEDA (ESTILO) */
+
+.payment-section,
+.search-section {
+  background-color: var(--color-surface);
+  padding: 1.5rem;
+  border-radius: var(--radius);
+  box-shadow: var(--shadow);
+  max-width: 600px;
+}
+
+.payment-section {
+  border-left: 4px solid var(--color-primary-dark);
+}
+
+.search-section {
+  border-left: 4px solid var(--color-primary);
+}
+
+/* FORMULARIO (LAYOUT) */
+
+.form {
+  display: flex;
+  flex-direction: column;
+  gap: 1.25rem;
+}
+
+.form h3 {
+  font-size: 1.2rem;
+  font-weight: 600;
+  margin-bottom: 0.5rem;
+}
+
+.form-group {
+  display: flex;
+  flex-direction: column;
+  gap: 0.25rem;
+}
+
+.form-group--radio {
+  gap: 0.5rem;
+}
+
+/* LABELS E INPUTS (ESTADO BASE) */
+
+.form label {
+  font-size: 0.9rem;
+  font-weight: 500;
+  color: var(--color-text);
+}
+
+.form input[type="text"],
+.form input[type="number"],
+.form input[type="date"] {
+  width: 100%;
+  padding: 0.5rem 0.75rem;
+  font-size: 0.95rem;
+  font-family: inherit;
+
+  border: 1px solid var(--color-border);
+  border-radius: var(--radius);
+  background-color: var(--color-surface);
+  color: var(--color-text);
+}
+
+.form input[type="file"] {
+  font-size: 0.9rem
+}
+
+.form input::placeholder {
+  color: var(--color-text-muted);
+}
+
+/* INPUTS (ESTADO :FOCUS) */
+
+.form input:focus {
+  outline: none;
+  border-color: var(--color-primary);
+  box-shadow: 0 0 0 2px rgba(37, 99, 235, 0.2);
+}
+
+/* BUTTONS (ESTADO BASE) */
+
+.btn {
+  padding: 0.6rem 1.25rem;
+  font-size: 0.95rem;
+  font-weight: 500;
+  border-radius: var(--radius);
+  border: none;
+  cursor: pointer;
+  font-family: inherit;
+}
+
+.btn--primary {
+  background-color: var(--color-primary);
+  color: #ffffff;
+}
+
+.btn--secondary {
+  background-color: var(--color-secondary);
+  color: #ffffff;
+}
+
+/* BUTTONS (ESTADO :HOVER Y :ACTIVE) */
+
+.btn:hover {
+  filter: brightness(0.95);
+}
+
+.btn:active {
+  transform: translateY(1px);
+}
+  
+/* SECCIÓN DE RESULTADOS (LAYOUT)*/
+.results-section {
+  width: 100%;
+  max-width: 600px;
+}
+
+/* PANEL DE RESULTADOS (ESTILO) */
+
+.results-panel {
+  background-color: var(--color-surface);
+  padding: 1.5rem;
+  border-radius: var(--radius);
+  box-shadow: var(--shadow);
+  border-left: 4px solid var(--color-secondary);
+}
+
+.results-panel h3 {
+  font-size: 1.2rem;
+  font-weight: 600;
+  margin-bottom: 1rem;
+}
+
+/* MENSAJE DE RESULTADO */
+
+.results-message {
+  font-size: 0.9rem;
+  color: var(--color-text-muted);
+}
+
+/* LISTA DE RESULTADOS (LAYOUT) */
+
+.results-list {
+  display: flex;
+  flex-direction: column;
+  gap: 1.5rem;
+}
+
+/* RESULTADO INDIVIDUAL (ESTILO) */
+
+.result-card {
+  background-color: var(--color-surface);
+  padding: 1.25rem;
+  border-radius: var(--radius);
+  box-shadow: var(--shadow);
+  font-size: 0.9rem;
+}
+
+.result-card p {
+  margin-bottom: 0.25rem;
+}
+
+.result-card a {
+  display: inline-block;
+  margin-top: 0.5rem;
+  color: var(--color-primary);
+  text-decoration: none;
+  font-weight: 500;
+}
+
+/* ACCIONES DE RESULTADOS (LAYOUT) */
+
+.results-actions {
+  display: flex;
+  flex-direction: column;
+  gap: 0.75rem;
+  margin-top: 1rem;
+}
+
+/* MODAL */
+
+.modal-overlay {
+  position: fixed;
+  inset: 0;
+  background: rgba(0, 0, 0, 0.5);
+
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
+  z-index: 1000;
+}
+
+.modal {
+  background: var(--color-surface);
+  padding: 1.5rem;
+  border-radius: var(--radius);
+  box-shadow: var(--shadow);
+
+  width: fit-content;
+  max-width: 90%;
+  max-height: 90%;
+  overflow: auto;
+  
+  position: relative;
+}
+
+.modal-close {
+  position: absolute;
+  top: 0.5rem;
+  right: 0.75rem;
+  background: none;
+  border: none;
+  font-size: 1.4rem;
+  cursor: pointer;
+}
+
+.modal-image {
+  display: block;
+  width: 100%;
+  height: auto;
+
+  border-radius: var(--radius);
+}
+
+/* ocultar clase hidden */
+
+.hidden {
+  display: none;
+}
