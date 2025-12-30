@@ -4,3 +4,4 @@ Este proyecto es un sistema web de práctica que se desarollará en **JavaScript
 Su objetivo es practicar habilidades de programación y manejo de datos en una interfaz web.
 
 Actualmente no hay funcionalidades implementadas
+
