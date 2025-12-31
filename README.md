@@ -28,6 +28,7 @@ Próximas mejoras planeadas:
 - Diseño responsive (mobile / desktop)
 - Mejora en la visualización de pagos (estilo listado bancario)
 - Mejora en la experiencia de búsqueda y filtros
+- Implementación de funcionalidad para eliminar pagos guardados
 
 ---
 
