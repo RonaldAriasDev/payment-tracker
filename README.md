@@ -1,7 +1,39 @@
-# Sistema de Gestión de Pagos
+# Payment Tracker
 
-Este proyecto es un sistema web de práctica que se desarollará en **JavaScript**, **HTML** y **CSS**.  
-Su objetivo es practicar habilidades de programación y manejo de datos en una interfaz web.
+Este proyecto es un sistema de **registro y búsqueda de pagos**, desarrollado en interfaz web con **HTML, CSS y JavaScript** con el objetivo de poner en práctica mis habilidades en dichas tecnologías.
 
-Actualmente no hay funcionalidades implementadas
 
+**Demo en vivo:**  
+https://ronaldariasdev.github.io/payment-tracker/
+
+---
+
+## Características actuales
+
+- Registro de pagos con datos básicos
+- Búsqueda de pagos mediante filtros
+- Visualización de resultados en tarjetas
+- Limpieza de resultados de búsqueda
+- Interfaz simple y funcional
+- Proyecto 100% frontend (sin backend)
+
+---
+
+## Estado del proyecto
+
+- Versión inicial publicada
+- En desarrollo activo
+
+Próximas mejoras planeadas:
+- Diseño responsive (mobile / desktop)
+- Mejora en la visualización de pagos (estilo listado bancario)
+- Mejora en la experiencia de búsqueda y filtros
+
+---
+
+## Estructura del proyecto
+
+/
+├── index.html ← archivo principal que se abre en el navegador
+├── style.css ← estilos de la página
+└── script.js ← lógica de la página: registro, búsqueda, modales
