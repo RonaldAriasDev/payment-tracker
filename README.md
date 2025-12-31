@@ -33,7 +33,9 @@ Próximas mejoras planeadas:
 
 ## Estructura del proyecto
 
+```
 /
 ├── index.html ← archivo principal que se abre en el navegador
 ├── style.css ← estilos de la página
 └── script.js ← lógica de la página: registro, búsqueda, modales
+```
