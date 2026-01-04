@@ -28,8 +28,8 @@
                 </div>
 
                 <div class="form-group">
-                    <label for="account-input">Cuenta:</label>
-                    <input type="text" id="account-input" placeholder="Ingrese cuenta de destino" required>
+                    <label for="account-input">Cuenta de destino:</label>
+                    <input type="text" id="account-input" placeholder="Ingrese cuenta" required>
                 </div>
 
                 <div class="form-group">
@@ -44,36 +44,28 @@
 
         <section class="search-section">
             <form id="search-form" class="form form--search">
-                <h3>Buscar cliente</h3>
+                <h3>Buscar pagos</h3>
 
-                <div class="form-group form-group--radio">
-                    <label>
-                        <input type="radio" name="filter" id="all-filter" checked>
-                        Mostrar todos
-                    </label>
+                <div class="form-group">
+                    <label for="name-search-input">Cliente</label>
+                    <input
+                        type="text"
+                        id="name-search-input"
+                        placeholder="Ingrese nombre"
+                    >
                 </div>
 
-                <div class="form-group form-group--radio">
-                    <label>
-                        <input type="radio" name="filter" id="name-filter">
-                        Filtrar por nombre
-                    </label>
-                    <input type="text" id="name-search-input" placeholder="Ingrese nombre">
+                <div class="form-group">
+                    <label for="account-search-input">Cuenta de destino</label>
+                    <input
+                        type="text"
+                        id="account-search-input"
+                        placeholder="Ingrese cuenta"
+                    >
                 </div>
 
-                <div class="form-group form-group--radio">
-                    <label>
-                        <input type="radio" name="filter" id="account-filter">
-                        Filtrar por cuenta
-                    </label>
-                    <input type="text" id="account-search-input" placeholder="Ingrese cuenta">
-                </div>
-
-                <div class="form-group form-group--radio">
-                    <label>
-                        <input type="radio" name="filter" id="date-filter">
-                        Filtrar por fecha
-                    </label>
+                <div class="form-group">
+                    <label>Rango de fechas</label>
                     <input type="date" id="date-from-input">
                     <input type="date" id="date-to-input">
                 </div>
@@ -114,6 +106,6 @@
         </div>
     </div>
 
-    <script src="payments-system.js"></script>
+    <script src="payment-tracker.js"></script>
 </body>
 </html>

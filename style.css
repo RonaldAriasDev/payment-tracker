@@ -113,10 +113,6 @@ body {
   gap: 0.25rem;
 }
 
-.form-group--radio {
-  gap: 0.5rem;
-}
-
 /* LABELS E INPUTS (ESTADO BASE) */
 
 .form label {
