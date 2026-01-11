@@ -14,10 +14,10 @@
 
     <main class="page-content">
         <section class="payment-section">
-            <form id="payments-form" class="form form--payment">
+            <form id="payments-form" class="form">
                 <h3>Registrar pago</h3>
 
-                <div class="form-group">
+                <div cl  ass="form-group">
                     <label for="client-input">Cliente:</label>
                     <input type="text" id="client-input" placeholder="Ingrese nombre" minlength="3" required>
                 </div>
@@ -43,7 +43,7 @@
 
 
         <section class="search-section">
-            <form id="search-form" class="form form--search">
+            <form id="search-form" class="form">
                 <h3>Buscar pagos</h3>
 
                 <div class="form-group">
@@ -81,18 +81,13 @@
                 <p id="results-message" class="results-message hidden"></p>
 
                 <div id="results-container" class="results-list">
-
                 </div>
                 
                 <div class="results-actions">
                     <button type="button" id="sum-button" class="btn btn--secondary" hidden>
                         Sumar montos
                     </button>
-
-                    <button type="button" id="results-reset-button" class="btn btn--secondary">
-                        Limpiar resultados
-                    </button>
-
+                    
                     <p id="total-text"></p>
                 </div>
             </div>

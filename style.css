@@ -19,7 +19,6 @@
 
   --color-text: #0f172a;
   --color-text-muted: #475569;
-  --color-success: #16a34a;
 
   --radius: 6px;
   --shadow: 0 4px 10px rgba(0, 0, 0, 0.08);
@@ -65,13 +64,10 @@ body {
   grid-template-columns: 1fr;
   justify-items: center;
   gap: 2rem;
-
-  /* outline: 2px solid blue; */
 }
 
 .page-content > section {
   width: 100%;
-  /* outline: 2px solid red; */
 }
 
 /* SECCIÓN DE PAGO Y BUSQUEDA (ESTILO) */
@@ -217,29 +213,50 @@ body {
 .results-list {
   display: flex;
   flex-direction: column;
-  gap: 1.5rem;
+  gap: 0;
 }
 
-/* RESULTADO INDIVIDUAL (ESTILO) */
-
-.result-card {
-  background-color: var(--color-surface);
-  padding: 1.25rem;
-  border-radius: var(--radius);
-  box-shadow: var(--shadow);
-  font-size: 0.9rem;
+/* FILA DE PAGO */
+.payment-row {
+  padding: 0.75rem 0;
+  border-bottom: 1px solid var(--color-border);
+  cursor: pointer;
 }
 
-.result-card p {
+.payment-row:last-child {
+  border-bottom: none;
+}
+
+.payment-row:hover {
+  background-color: #f1f5f9;
+}
+
+/* FECHA PEQUEÑA */
+
+.payment-date {
+  font-size: 0.75rem;
+  color: var(--color-text-muted);
   margin-bottom: 0.25rem;
 }
 
-.result-card a {
-  display: inline-block;
-  margin-top: 0.5rem;
-  color: var(--color-primary);
-  text-decoration: none;
+/* CONTENIDO PRINCIPAL */
+.payment-main {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+/* CLIENTE */
+.payment-client {
+  font-size: 0.95rem;
   font-weight: 500;
+}
+
+/* MONTO */
+.payment-amount {
+  font-size: 0.95rem;
+  font-weight: 600;
+  color: var(--color-text);
 }
 
 /* ACCIONES DE RESULTADOS (LAYOUT) */

@@ -47,11 +47,6 @@ const accountSearchInput = document.querySelector("#account-search-input")
 const dateFromInput = document.querySelector("#date-from-input")
 const dateToInput = document.querySelector("#date-to-input")
 
-const allFilter = document.querySelector("#all-filter")
-const nameFilter = document.querySelector("#name-filter")
-const dateFilter = document.querySelector("#date-filter")
-const accountFilter = document.querySelector("#account-filter")
-
 // Selectores de sección de resultados
 
 const resultsSection = document.querySelector("#results-section")
@@ -60,7 +55,6 @@ const resultsContainer = document.querySelector("#results-container")
 
 const sumButton = document.querySelector("#sum-button")
 const totalText = document.querySelector("#total-text")
-const resultsResetButton = document.querySelector("#results-reset-button")
 
 // Selectores de sección de modal-overlay
 
@@ -80,8 +74,10 @@ let currentResults = []
 const getPayments = () =>
   JSON.parse(localStorage.getItem("payments")) || []
 
+
 const savePayments = (payments) =>
   localStorage.setItem("payments", JSON.stringify(payments))
+
 
 const base64ToBlobURL = (base64) => {
   const byteString = atob(base64.split(",")[1])
@@ -98,12 +94,12 @@ const base64ToBlobURL = (base64) => {
   return URL.createObjectURL(blob)
 }
 
+
 const clearResults = () => {
-  resultsContainer
-    .querySelectorAll(".result-card")
-    .forEach(card => card.remove())
+  resultsContainer.innerHTML = ""
   totalText.textContent = ""
 }
+
 
 const normalizeText = (text) =>
   text
@@ -112,24 +108,29 @@ const normalizeText = (text) =>
     .normalize("NFD")
     .replace(/[\u0300-\u036f]/g, "")
 
+
 const resetPaymentsForm = () => {
   paymentsForm.reset()
   imagenBase64 = null
 }
 
+
 const toggleSumButton = () => {
   sumButton.hidden = currentResults.length === 0
 }
+
 
 const openModal = (html) => {
   modalContent.innerHTML = html
   modalOverlay.classList.remove("hidden")
 }
 
+
 const closeModal = () => {
   modalOverlay.classList.add("hidden")
   modalContent.innerHTML = ""
 }
+
 
 const showSavedModal = () => {
   openModal(`
@@ -138,18 +139,22 @@ const showSavedModal = () => {
   `)
 }
 
+
 const showResultsSection = () => {
   resultsSection.classList.remove("hidden")
 }
+
 
 const hideResultsSection = () => {
   resultsSection.classList.add("hidden")
 }
 
+
 const showMessage = (text) => {
   resultsMessage.textContent = text
   resultsMessage.classList.remove("hidden")
 }
+
 
 const hideMessage = () => {
   resultsMessage.textContent = ""
@@ -157,33 +162,61 @@ const hideMessage = () => {
 }
 
 
+const formatDate = (isoString) =>
+  new Date(isoString).toLocaleDateString("es-CL", {
+    day: "2-digit",
+    month: "short",
+    year: "numeric"
+  })
+
+
+const formatAmount = (amount) =>
+  `$${amount.toLocaleString("es-CL")}`
+
+
+const createPaymentRow = (payment) => {
+  const row = document.createElement("article")
+  row.classList.add("payment-row")
+
+  row.innerHTML = `
+    <span class="payment-date">${formatDate(payment.datetime)}</span>
+    <div class="payment-main">
+      <span class="payment-client">${payment.client}</span>
+      <span class="payment-amount">${formatAmount(payment.amount)}</span>
+    </div>
+  `
+
+  return row
+}
+
+
+const openPaymentModal = (payment) => {
+  const date = new Date(payment.datetime)
+  const blobURL = base64ToBlobURL(payment.receipt)
+
+  openModal(`
+    <h3>Detalle del pago</h3>
+
+    <p><strong>Cliente:</strong> ${payment.client}</p>
+    <p><strong>Monto:</strong> ${formatAmount(payment.amount)}</p>
+    <p><strong>Cuenta:</strong> ${payment.account}</p>
+    <p><strong>Fecha:</strong> ${date.toLocaleString()}</p>
+
+    <img src="${blobURL}" class="modal-image">
+  `)
+}
+
+
 // Render
 
 const renderPayment = (payment) => {
-  const item = document.createElement("article")
-  item.classList.add("result-card")
+  const row = createPaymentRow(payment)
 
-  const blobURL = base64ToBlobURL(payment.receipt)
-  const date = new Date(payment.datetime)
-
-  item.innerHTML = `
-    <p><strong>Cliente:</strong> ${payment.client}</p>
-    <p><strong>Monto:</strong> ${payment.amount}</p>
-    <p><strong>Cuenta:</strong> ${payment.account}</p>
-    <p><strong>Fecha y hora:</strong> ${date.toLocaleString()}</p>
-    <button class="btn btn--secondary view-receipt">Ver comprobante</button>
-  `
-
-  item
-  .querySelector(".view-receipt")
-  .addEventListener("click", () => {
-    openModal(`
-      <h3>Comprobante</h3>
-      <img src="${blobURL}" class="modal-image">
-    `)
+  row.addEventListener("click", () => {
+    openPaymentModal(payment)
   })
 
-  resultsContainer.appendChild(item)
+  resultsContainer.appendChild(row)
 }
 
 const renderPayments = (payments) => {
@@ -220,6 +253,7 @@ const handlePaymentsSubmit = (e) => {
   e.preventDefault()
 
   const data = {
+    id: crypto.randomUUID(),
     client: clientInput.value,
     amount: Number(amountInput.value),
     account: accountInput.value,
@@ -294,14 +328,6 @@ const handleOverlayClick = (e) => {
 }
 
 
-const handleResultsReset = () => {
-  clearResults()
-  currentResults = []
-  searchForm.reset()
-  hideResultsSection()
-}
-
-
 // Eventos
 
 receiptInput.addEventListener("change", handleReceiptChange)
@@ -310,7 +336,6 @@ paymentsForm.addEventListener("submit", handlePaymentsSubmit)
 searchForm.addEventListener("submit", handleSearchSubmit)
 
 sumButton.addEventListener("click", handleSumAmounts)
-resultsResetButton.addEventListener("click", handleResultsReset)
 
 modalClose.addEventListener("click", closeModal)
 modalOverlay.addEventListener("click", handleOverlayClick)
