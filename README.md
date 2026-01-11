@@ -11,9 +11,8 @@ https://ronaldariasdev.github.io/payment-tracker/
 ## Características actuales
 
 - Registro de pagos con datos básicos
-- Búsqueda de pagos mediante filtros
-- Visualización de resultados en tarjetas
-- Limpieza de resultados de búsqueda
+- Búsqueda de pagos mediante filtros acumulativos y opcionales
+- Visualización de resultados en fila tipo banco
 - Interfaz simple y funcional
 - Proyecto 100% frontend (sin backend)
 
@@ -21,12 +20,13 @@ https://ronaldariasdev.github.io/payment-tracker/
 
 ## Estado del proyecto
 
-- Versión mejorada con filtros acumulativos y opcionales 
+- v1.2 Mejora en la visualización de pagos (estilo listado bancario)
+- V1.1 Mejora con filtros acumulativos y opcionales
+- v1.0 Versión inicial
 - En desarrollo activo
 
 Próximas mejoras planeadas:
 - Diseño responsive (mobile / desktop)
-- Mejora en la visualización de pagos (estilo listado bancario)
 - Implementación de funcionalidad para eliminar pagos guardados
 
 ---
