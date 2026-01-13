@@ -203,7 +203,48 @@ const openPaymentModal = (payment) => {
     <p><strong>Fecha:</strong> ${date.toLocaleString()}</p>
 
     <img src="${blobURL}" class="modal-image">
+
+    <div class="modal-footer">
+      <button id="delete-payment-button" class="delete-payment-button">
+        Eliminar
+      </button>
+    </div>
   `)
+
+  const deleteButton = document.querySelector("#delete-payment-button")
+  deleteButton.addEventListener("click", () => {
+    openDeleteConfirmation(payment.id)
+  })
+}
+
+
+const openDeleteConfirmation = (paymentId) => {
+  openModal(`
+    <h3>Confirmar eliminación</h3>
+    <p>¿Está seguro de que desea eliminar este pago?<br>Esta acción es irreversible.</p>
+    
+    <div class="confirm-buttons">
+      <button id="cancel-btn" class="btn btn--secondary">Cancelar</button>
+      <button id="confirm-btn" class="btn btn--primary">Eliminar</button>
+    </div>
+  `)
+
+  const cancelButton = document.querySelector("#cancel-btn")
+  cancelButton.addEventListener("click", closeModal)
+
+  const confirmButton = document.querySelector("#confirm-btn")
+  confirmButton.addEventListener("click", () => {
+    deletePayment(paymentId)
+    closeModal()
+    renderPayments(getPayments())
+  })
+}
+
+
+const deletePayment = (paymentId) => {
+  let payments = getPayments()
+  payments = payments.filter(p => p.id !== paymentId)
+  savePayments(payments)
 }
 
 
@@ -339,3 +380,5 @@ sumButton.addEventListener("click", handleSumAmounts)
 
 modalClose.addEventListener("click", closeModal)
 modalOverlay.addEventListener("click", handleOverlayClick)
+
+

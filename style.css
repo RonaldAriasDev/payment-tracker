@@ -319,3 +319,30 @@ body {
 .hidden {
   display: none;
 }
+
+
+.modal-footer {
+  display: flex;
+  justify-content: flex-end;
+  margin-top: 1rem;
+}
+
+.delete-payment-button {
+  background: transparent;
+  border: none;
+  color: #dc2626;
+  font-size: 0.85rem;
+  cursor: pointer;
+}
+
+.delete-payment-button:hover {
+  text-decoration: underline;
+}
+
+
+.confirm-buttons {
+  display: flex;
+  justify-content: flex-end;
+  gap: 0.5rem;
+  margin-top: 1.5rem;
+}
