@@ -19,15 +19,17 @@ https://ronaldariasdev.github.io/payment-tracker/
 ---
 
 ## Estado del proyecto
-
+- v1.4 Diseño responsive (mobile / desktop)
 - v1.3 Se implementa funcionalidad de eliminar pagos con confirmación
 - v1.2 Mejora en la visualización de pagos (estilo listado bancario)
 - V1.1 Mejora con filtros acumulativos y opcionales
 - v1.0 Versión inicial
 - En desarrollo activo
 
-Próximas mejoras planeadas:
-- Diseño responsive (mobile / desktop)
+---
+
+## Próximas mejoras planeadas
+- por definir
 
 ---
 
